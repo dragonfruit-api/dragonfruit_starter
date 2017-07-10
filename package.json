@@ -1,0 +1,19 @@
+{
+  "name": "dragonfruit_starter",
+  "version": "1.0.0",
+  "description": "Simple example code for accessing Dragonfruit APIs from a web page.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ideo/dragonfruit_starter.git"
+  },
+  "author": "Peter Olson",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/ideo/dragonfruit_starter/issues"
+  },
+  "homepage": "https://github.com/ideo/dragonfruit_starter#readme"
+}

@@ -52,7 +52,8 @@ cd $HOMEDIR
 
 
 echo
-echo "\033[33;1mYou're all done!\033[33;1m"
+echo "\033[33;1mYou're all done!\033[33;1m."
+
 # echo
 # echo "\033[31;1mHit S to stop or [enter] to continue.\033[0m"
 # read UPTODATE

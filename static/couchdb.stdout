@@ -1,0 +1,1926 @@
+
+Apache CouchDB 1.6.1 (LogLevel=debug) is starting.
+Configuration Settings ["/usr/local/etc/couchdb/default.ini",
+                        "/usr/local/etc/couchdb/local.ini",
+                        "/usr/local/etc/couchdb/default.ini",
+                        "/usr/local/etc/couchdb/local.ini"]:
+  [attachments] compressible_types="text/*, application/javascript, application/json, application/xml"
+  [attachments] compression_level="8"
+  [compaction_daemon] check_interval="300"
+  [compaction_daemon] min_file_size="131072"
+  [cors] credentials="true"
+  [cors] origins="*"
+  [couch_httpd_auth] allow_persistent_cookies="false"
+  [couch_httpd_auth] auth_cache_size="50"
+  [couch_httpd_auth] authentication_db="_users"
+  [couch_httpd_auth] authentication_redirect="/_utils/session.html"
+  [couch_httpd_auth] iterations="10"
+  [couch_httpd_auth] require_valid_user="false"
+  [couch_httpd_auth] timeout="600"
+  [couch_httpd_oauth] use_users_db="false"
+  [couchdb] attachment_stream_buffer_size="4096"
+  [couchdb] database_dir="/usr/local/var/lib/couchdb"
+  [couchdb] delayed_commits="true"
+  [couchdb] file_compression="snappy"
+  [couchdb] max_dbs_open="100"
+  [couchdb] max_document_size="4294967296"
+  [couchdb] os_process_timeout="5000"
+  [couchdb] plugin_dir="/usr/local/Cellar/couchdb/1.6.1_11/lib/couchdb/plugins"
+  [couchdb] uri_file="/usr/local/var/run/couchdb/couch.uri"
+  [couchdb] util_driver_dir="/usr/local/Cellar/couchdb/1.6.1_11/lib/couchdb/erlang/lib/couch-1.6.1/priv/lib"
+  [couchdb] uuid="d9cb64bf3a93fd8ec0e5023b669c82cf"
+  [couchdb] view_index_dir="/usr/local/var/lib/couchdb"
+  [daemons] auth_cache="{couch_auth_cache, start_link, []}"
+  [daemons] compaction_daemon="{couch_compaction_daemon, start_link, []}"
+  [daemons] external_manager="{couch_external_manager, start_link, []}"
+  [daemons] httpd="{couch_httpd, start_link, []}"
+  [daemons] index_server="{couch_index_server, start_link, []}"
+  [daemons] os_daemons="{couch_os_daemons, start_link, []}"
+  [daemons] query_servers="{couch_query_servers, start_link, []}"
+  [daemons] replicator_manager="{couch_replicator_manager, start_link, []}"
+  [daemons] stats_aggregator="{couch_stats_aggregator, start, []}"
+  [daemons] stats_collector="{couch_stats_collector, start, []}"
+  [daemons] uuids="{couch_uuids, start, []}"
+  [daemons] vhosts="{couch_httpd_vhost, start_link, []}"
+  [database_compaction] checkpoint_after="5242880"
+  [database_compaction] doc_buffer_size="524288"
+  [http] origins="*"
+  [httpd] allow_jsonp="false"
+  [httpd] authentication_handlers="{couch_httpd_oauth, oauth_authentication_handler}, {couch_httpd_auth, cookie_authentication_handler}, {couch_httpd_auth, default_authentication_handler}"
+  [httpd] bind_address="127.0.0.1"
+  [httpd] default_handler="{couch_httpd_db, handle_request}"
+  [httpd] enable_cors="true"
+  [httpd] log_max_chunk_size="1000000"
+  [httpd] origins="*"
+  [httpd] port="5984"
+  [httpd] secure_rewrites="true"
+  [httpd] socket_options="[{recbuf, 262144}, {sndbuf, 262144}]"
+  [httpd] vhost_global_handlers="_utils, _uuids, _session, _oauth, _users"
+  [httpd_db_handlers] _all_docs="{couch_mrview_http, handle_all_docs_req}"
+  [httpd_db_handlers] _changes="{couch_httpd_db, handle_changes_req}"
+  [httpd_db_handlers] _compact="{couch_httpd_db, handle_compact_req}"
+  [httpd_db_handlers] _design="{couch_httpd_db, handle_design_req}"
+  [httpd_db_handlers] _temp_view="{couch_mrview_http, handle_temp_view_req}"
+  [httpd_db_handlers] _view_cleanup="{couch_mrview_http, handle_cleanup_req}"
+  [httpd_design_handlers] _compact="{couch_mrview_http, handle_compact_req}"
+  [httpd_design_handlers] _info="{couch_mrview_http, handle_info_req}"
+  [httpd_design_handlers] _list="{couch_mrview_show, handle_view_list_req}"
+  [httpd_design_handlers] _rewrite="{couch_httpd_rewrite, handle_rewrite_req}"
+  [httpd_design_handlers] _show="{couch_mrview_show, handle_doc_show_req}"
+  [httpd_design_handlers] _update="{couch_mrview_show, handle_doc_update_req}"
+  [httpd_design_handlers] _view="{couch_mrview_http, handle_view_req}"
+  [httpd_global_handlers] /="{couch_httpd_misc_handlers, handle_welcome_req, <<\"Welcome\">>}"
+  [httpd_global_handlers] _active_tasks="{couch_httpd_misc_handlers, handle_task_status_req}"
+  [httpd_global_handlers] _all_dbs="{couch_httpd_misc_handlers, handle_all_dbs_req}"
+  [httpd_global_handlers] _config="{couch_httpd_misc_handlers, handle_config_req}"
+  [httpd_global_handlers] _db_updates="{couch_dbupdates_httpd, handle_req}"
+  [httpd_global_handlers] _log="{couch_httpd_misc_handlers, handle_log_req}"
+  [httpd_global_handlers] _oauth="{couch_httpd_oauth, handle_oauth_req}"
+  [httpd_global_handlers] _plugins="{couch_plugins_httpd, handle_req}"
+  [httpd_global_handlers] _replicate="{couch_replicator_httpd, handle_req}"
+  [httpd_global_handlers] _restart="{couch_httpd_misc_handlers, handle_restart_req}"
+  [httpd_global_handlers] _session="{couch_httpd_auth, handle_session_req}"
+  [httpd_global_handlers] _stats="{couch_httpd_stats_handlers, handle_stats_req}"
+  [httpd_global_handlers] _utils="{couch_httpd_misc_handlers, handle_utils_dir_req, \"/usr/local/Cellar/couchdb/1.6.1_11/share/couchdb/www\"}"
+  [httpd_global_handlers] _uuids="{couch_httpd_misc_handlers, handle_uuids_req}"
+  [httpd_global_handlers] favicon.ico="{couch_httpd_misc_handlers, handle_favicon_req, \"/usr/local/Cellar/couchdb/1.6.1_11/share/couchdb/www\"}"
+  [log] file="/usr/local/var/log/couchdb/couch.log"
+  [log] include_sasl="true"
+  [log] level="debug"
+  [query_server_config] os_process_limit="25"
+  [query_server_config] reduce_limit="true"
+  [query_servers] coffeescript="/usr/local/Cellar/couchdb/1.6.1_11/bin/couchjs /usr/local/Cellar/couchdb/1.6.1_11/share/couchdb/server/main-coffee.js"
+  [query_servers] javascript="/usr/local/Cellar/couchdb/1.6.1_11/bin/couchjs /usr/local/Cellar/couchdb/1.6.1_11/share/couchdb/server/main.js"
+  [replicator] connection_timeout="30000"
+  [replicator] db="_replicator"
+  [replicator] http_connections="20"
+  [replicator] max_replication_retry_count="10"
+  [replicator] retries_per_request="10"
+  [replicator] socket_options="[{keepalive, true}, {nodelay, false}]"
+  [replicator] ssl_certificate_max_depth="3"
+  [replicator] verify_ssl_certificates="false"
+  [replicator] worker_batch_size="500"
+  [replicator] worker_processes="4"
+  [ssl] port="6984"
+  [ssl] ssl_certificate_max_depth="1"
+  [ssl] verify_ssl_certificates="false"
+  [stats] rate="1000"
+  [stats] samples="[0, 60, 300, 900]"
+  [uuids] algorithm="sequential"
+  [uuids] max_count="1000"
+  [vendor] name="Homebrew"
+  [vendor] version="1.6.1_11"
+  [view_compaction] keyvalue_buffer_size="2097152"
+Apache CouchDB has started. Time to relax.
+[info] [<0.56.0>] Apache CouchDB has started on http://127.0.0.1:5984/
+[debug] [<0.127.0>] 'GET' /_utils {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Cache-Control',"max-age=0"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {"Upgrade-Insecure-Requests","1"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils 301
+[debug] [<0.127.0>] 'GET' /_utils/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Cache-Control',"max-age=0"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {"Upgrade-Insecure-Requests","1"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/ 200
+[debug] [<0.127.0>] 'GET' /_utils/style/layout.css?0.11.0 {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/css,*/*;q=0.1"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: [{"0.11.0",[]}]
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/style/layout.css?0.11.0 200
+[debug] [<0.127.0>] 'GET' /_utils/script/json2.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/json2.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/sha1.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/sha1.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/jquery.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/jquery.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/jquery.couch.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/jquery.couch.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/jquery.dialog.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/jquery.dialog.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/futon.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/futon.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/futon.browse.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/futon.browse.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/futon.format.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/futon.format.js 200
+[debug] [<0.127.0>] 'GET' /_utils/image/bg.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/bg.png 200
+[debug] [<0.127.0>] 'GET' /_utils/image/add.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/add.png 200
+[debug] [<0.127.0>] 'GET' /_utils/image/thead.gif {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/thead.gif 200
+[debug] [<0.127.0>] 'GET' /_utils/_sidebar.html {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/_sidebar.html 200
+[debug] [<0.127.0>] 'GET' /_all_dbs {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_all_dbs 200
+[debug] [<0.127.0>] 'GET' /_utils/image/spinner_33.gif {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/spinner_33.gif 200
+[debug] [<0.127.0>] 'GET' /_utils/image/sidebar-toggle.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/sidebar-toggle.png 200
+[debug] [<0.127.0>] 'GET' /_session {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_session 200
+[debug] [<0.127.0>] 'GET' / {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET / 200
+[debug] [<0.127.0>] 'GET' /_utils/image/logo.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/logo.png 200
+[debug] [<0.127.0>] 'GET' /_replicator/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_replicator/ 200
+[debug] [<0.127.0>] 'GET' /_users/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_users/ 200
+[debug] [<0.127.0>] 'GET' /birdie_transactions/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /birdie_transactions/ 200
+[debug] [<0.127.0>] 'GET' /birdie_users/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /birdie_users/ 200
+[debug] [<0.127.0>] 'GET' /stringers/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /stringers/ 200
+[debug] [<0.127.0>] 'GET' /swagger_docs/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /swagger_docs/ 200
+[debug] [<0.127.0>] 'GET' /test_suite_db/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /test_suite_db/ 200
+[debug] [<0.127.0>] 'GET' /trees/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /trees/ 200
+[debug] [<0.127.0>] 'GET' /vartests/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /vartests/ 200
+[debug] [<0.127.0>] 'GET' /favicon.ico {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /favicon.ico 200
+[debug] [<0.173.0>] 'GET' /_utils/database.html?stringers {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {"Upgrade-Insecure-Requests","1"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: [{"stringers",[]}]
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/database.html?stringers 200
+[debug] [<0.173.0>] 'GET' /_utils/style/layout.css {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/css,*/*;q=0.1"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?stringers"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/style/layout.css 200
+[debug] [<0.173.0>] 'GET' /_utils/script/jquery.resizer.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?stringers"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/script/jquery.resizer.js 200
+[debug] [<0.173.0>] 'GET' /_utils/script/jquery.suggest.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?stringers"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/script/jquery.suggest.js 200
+[debug] [<0.173.0>] 'GET' /_utils/image/path.gif {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/image/path.gif 200
+[debug] [<0.173.0>] 'GET' /_utils/image/key.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/image/key.png 200
+[debug] [<0.173.0>] 'GET' /_utils/image/compact.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/image/compact.png 200
+[debug] [<0.173.0>] 'GET' /_utils/image/delete.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/image/delete.png 200
+[debug] [<0.173.0>] 'GET' /_utils/image/thead-key.gif {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/image/thead-key.gif 200
+[debug] [<0.173.0>] 'GET' /_utils/image/order-asc.gif {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/image/order-asc.gif 200
+[debug] [<0.173.0>] 'GET' /_utils/_sidebar.html {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'If-Modified-Since',"Thu, 21 Aug 2014 23:16:42 GMT"},
+          {'Referer',"http://localhost:5984/_utils/database.html?stringers"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/_sidebar.html 200
+[debug] [<0.173.0>] 'GET' /stringers/_all_docs?startkey=%22_design%2F%22&endkey=%22_design0%22&include_docs=true {1,
+                                                                                                                  1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?stringers"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.173.0>] OAuth Params: [{"startkey","\"_design/\""},
+                                   {"endkey","\"_design0\""},
+                                   {"include_docs","true"}]
+[info] [<0.173.0>] 127.0.0.1 - - GET /stringers/_all_docs?startkey=%22_design%2F%22&endkey=%22_design0%22&include_docs=true 200
+[debug] [<0.173.0>] 'GET' /stringers/_all_docs?limit=11 {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?stringers"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.173.0>] OAuth Params: [{"limit","11"}]
+[info] [<0.173.0>] 127.0.0.1 - - GET /stringers/_all_docs?limit=11 200
+[debug] [<0.173.0>] 'GET' /_config/query_servers/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?stringers"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_config/query_servers/ 200
+[debug] [<0.173.0>] 'GET' /_utils/image/rarrow.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=trees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/image/rarrow.png 200
+[debug] [<0.173.0>] 'GET' /_session {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?stringers"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_session 200
+[debug] [<0.173.0>] 'GET' / {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?stringers"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET / 200
+[debug] [<0.173.0>] 'GET' /_config/native_query_servers/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?stringers"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_config/native_query_servers/ 200
+[debug] [<0.173.0>] 'GET' /_utils/document.html?stringers/_design/core {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?stringers"},
+          {"Upgrade-Insecure-Requests","1"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: [{"stringers/_design/core",[]}]
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/document.html?stringers/_design/core 200
+[debug] [<0.173.0>] 'GET' /_utils/style/layout.css?0.11.0 {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/css,*/*;q=0.1"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'If-Modified-Since',"Thu, 21 Aug 2014 23:16:42 GMT"},
+          {'Referer',"http://localhost:5984/_utils/document.html?stringers/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: [{"0.11.0",[]}]
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/style/layout.css?0.11.0 200
+[debug] [<0.173.0>] 'GET' /_utils/script/base64.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/document.html?stringers/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/script/base64.js 200
+[debug] [<0.173.0>] 'GET' /_utils/script/jquery.editinline.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/document.html?stringers/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/script/jquery.editinline.js 200
+[debug] [<0.173.0>] 'GET' /_utils/script/jquery.form.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/document.html?stringers/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/script/jquery.form.js 200
+[debug] [<0.173.0>] 'GET' /_utils/image/save.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/image/save.png 200
+[debug] [<0.173.0>] 'GET' /_utils/image/load.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/image/load.png 200
+[debug] [<0.173.0>] 'GET' /_utils/_sidebar.html {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'If-Modified-Since',"Thu, 21 Aug 2014 23:16:42 GMT"},
+          {'Referer',"http://localhost:5984/_utils/document.html?stringers/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/_sidebar.html 200
+[debug] [<0.173.0>] 'GET' /stringers/_design/core?revs_info=true {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/document.html?stringers/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.173.0>] OAuth Params: [{"revs_info","true"}]
+[info] [<0.173.0>] 127.0.0.1 - - GET /stringers/_design/core?revs_info=true 200
+[debug] [<0.173.0>] 'GET' /_session {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/document.html?stringers/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_session 200
+[debug] [<0.173.0>] 'GET' / {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/document.html?stringers/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET / 200
+[debug] [<0.173.0>] 'GET' /_utils/image/delete-mini.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/image/delete-mini.png 200
+[debug] [<0.173.0>] 'GET' /_utils/image/toggle-expand.gif {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/image/toggle-expand.gif 200
+[debug] [<0.173.0>] 'GET' /_utils/image/toggle-collapse.gif {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.173.0>] OAuth Params: []
+[info] [<0.173.0>] 127.0.0.1 - - GET /_utils/image/toggle-collapse.gif 200
+
+Apache CouchDB 1.6.1 (LogLevel=debug) is starting.
+Configuration Settings ["/usr/local/etc/couchdb/default.ini",
+                        "/usr/local/etc/couchdb/local.ini",
+                        "/usr/local/etc/couchdb/default.ini",
+                        "/usr/local/etc/couchdb/local.ini"]:
+  [attachments] compressible_types="text/*, application/javascript, application/json, application/xml"
+  [attachments] compression_level="8"
+  [compaction_daemon] check_interval="300"
+  [compaction_daemon] min_file_size="131072"
+  [cors] credentials="true"
+  [cors] origins="*"
+  [couch_httpd_auth] allow_persistent_cookies="false"
+  [couch_httpd_auth] auth_cache_size="50"
+  [couch_httpd_auth] authentication_db="_users"
+  [couch_httpd_auth] authentication_redirect="/_utils/session.html"
+  [couch_httpd_auth] iterations="10"
+  [couch_httpd_auth] require_valid_user="false"
+  [couch_httpd_auth] timeout="600"
+  [couch_httpd_oauth] use_users_db="false"
+  [couchdb] attachment_stream_buffer_size="4096"
+  [couchdb] database_dir="/usr/local/var/lib/couchdb"
+  [couchdb] delayed_commits="true"
+  [couchdb] file_compression="snappy"
+  [couchdb] max_dbs_open="100"
+  [couchdb] max_document_size="4294967296"
+  [couchdb] os_process_timeout="5000"
+  [couchdb] plugin_dir="/usr/local/Cellar/couchdb/1.6.1_11/lib/couchdb/plugins"
+  [couchdb] uri_file="/usr/local/var/run/couchdb/couch.uri"
+  [couchdb] util_driver_dir="/usr/local/Cellar/couchdb/1.6.1_11/lib/couchdb/erlang/lib/couch-1.6.1/priv/lib"
+  [couchdb] uuid="d9cb64bf3a93fd8ec0e5023b669c82cf"
+  [couchdb] view_index_dir="/usr/local/var/lib/couchdb"
+  [daemons] auth_cache="{couch_auth_cache, start_link, []}"
+  [daemons] compaction_daemon="{couch_compaction_daemon, start_link, []}"
+  [daemons] external_manager="{couch_external_manager, start_link, []}"
+  [daemons] httpd="{couch_httpd, start_link, []}"
+  [daemons] index_server="{couch_index_server, start_link, []}"
+  [daemons] os_daemons="{couch_os_daemons, start_link, []}"
+  [daemons] query_servers="{couch_query_servers, start_link, []}"
+  [daemons] replicator_manager="{couch_replicator_manager, start_link, []}"
+  [daemons] stats_aggregator="{couch_stats_aggregator, start, []}"
+  [daemons] stats_collector="{couch_stats_collector, start, []}"
+  [daemons] uuids="{couch_uuids, start, []}"
+  [daemons] vhosts="{couch_httpd_vhost, start_link, []}"
+  [database_compaction] checkpoint_after="5242880"
+  [database_compaction] doc_buffer_size="524288"
+  [http] origins="*"
+  [httpd] allow_jsonp="false"
+  [httpd] authentication_handlers="{couch_httpd_oauth, oauth_authentication_handler}, {couch_httpd_auth, cookie_authentication_handler}, {couch_httpd_auth, default_authentication_handler}"
+  [httpd] bind_address="127.0.0.1"
+  [httpd] default_handler="{couch_httpd_db, handle_request}"
+  [httpd] enable_cors="true"
+  [httpd] log_max_chunk_size="1000000"
+  [httpd] origins="*"
+  [httpd] port="5984"
+  [httpd] secure_rewrites="true"
+  [httpd] socket_options="[{recbuf, 262144}, {sndbuf, 262144}]"
+  [httpd] vhost_global_handlers="_utils, _uuids, _session, _oauth, _users"
+  [httpd_db_handlers] _all_docs="{couch_mrview_http, handle_all_docs_req}"
+  [httpd_db_handlers] _changes="{couch_httpd_db, handle_changes_req}"
+  [httpd_db_handlers] _compact="{couch_httpd_db, handle_compact_req}"
+  [httpd_db_handlers] _design="{couch_httpd_db, handle_design_req}"
+  [httpd_db_handlers] _temp_view="{couch_mrview_http, handle_temp_view_req}"
+  [httpd_db_handlers] _view_cleanup="{couch_mrview_http, handle_cleanup_req}"
+  [httpd_design_handlers] _compact="{couch_mrview_http, handle_compact_req}"
+  [httpd_design_handlers] _info="{couch_mrview_http, handle_info_req}"
+  [httpd_design_handlers] _list="{couch_mrview_show, handle_view_list_req}"
+  [httpd_design_handlers] _rewrite="{couch_httpd_rewrite, handle_rewrite_req}"
+  [httpd_design_handlers] _show="{couch_mrview_show, handle_doc_show_req}"
+  [httpd_design_handlers] _update="{couch_mrview_show, handle_doc_update_req}"
+  [httpd_design_handlers] _view="{couch_mrview_http, handle_view_req}"
+  [httpd_global_handlers] /="{couch_httpd_misc_handlers, handle_welcome_req, <<\"Welcome\">>}"
+  [httpd_global_handlers] _active_tasks="{couch_httpd_misc_handlers, handle_task_status_req}"
+  [httpd_global_handlers] _all_dbs="{couch_httpd_misc_handlers, handle_all_dbs_req}"
+  [httpd_global_handlers] _config="{couch_httpd_misc_handlers, handle_config_req}"
+  [httpd_global_handlers] _db_updates="{couch_dbupdates_httpd, handle_req}"
+  [httpd_global_handlers] _log="{couch_httpd_misc_handlers, handle_log_req}"
+  [httpd_global_handlers] _oauth="{couch_httpd_oauth, handle_oauth_req}"
+  [httpd_global_handlers] _plugins="{couch_plugins_httpd, handle_req}"
+  [httpd_global_handlers] _replicate="{couch_replicator_httpd, handle_req}"
+  [httpd_global_handlers] _restart="{couch_httpd_misc_handlers, handle_restart_req}"
+  [httpd_global_handlers] _session="{couch_httpd_auth, handle_session_req}"
+  [httpd_global_handlers] _stats="{couch_httpd_stats_handlers, handle_stats_req}"
+  [httpd_global_handlers] _utils="{couch_httpd_misc_handlers, handle_utils_dir_req, \"/usr/local/Cellar/couchdb/1.6.1_11/share/couchdb/www\"}"
+  [httpd_global_handlers] _uuids="{couch_httpd_misc_handlers, handle_uuids_req}"
+  [httpd_global_handlers] favicon.ico="{couch_httpd_misc_handlers, handle_favicon_req, \"/usr/local/Cellar/couchdb/1.6.1_11/share/couchdb/www\"}"
+  [log] file="/usr/local/var/log/couchdb/couch.log"
+  [log] include_sasl="true"
+  [log] level="debug"
+  [query_server_config] os_process_limit="25"
+  [query_server_config] reduce_limit="true"
+  [query_servers] coffeescript="/usr/local/Cellar/couchdb/1.6.1_11/bin/couchjs /usr/local/Cellar/couchdb/1.6.1_11/share/couchdb/server/main-coffee.js"
+  [query_servers] javascript="/usr/local/Cellar/couchdb/1.6.1_11/bin/couchjs /usr/local/Cellar/couchdb/1.6.1_11/share/couchdb/server/main.js"
+  [replicator] connection_timeout="30000"
+  [replicator] db="_replicator"
+  [replicator] http_connections="20"
+  [replicator] max_replication_retry_count="10"
+  [replicator] retries_per_request="10"
+  [replicator] socket_options="[{keepalive, true}, {nodelay, false}]"
+  [replicator] ssl_certificate_max_depth="3"
+  [replicator] verify_ssl_certificates="false"
+  [replicator] worker_batch_size="500"
+  [replicator] worker_processes="4"
+  [ssl] port="6984"
+  [ssl] ssl_certificate_max_depth="1"
+  [ssl] verify_ssl_certificates="false"
+  [stats] rate="1000"
+  [stats] samples="[0, 60, 300, 900]"
+  [uuids] algorithm="sequential"
+  [uuids] max_count="1000"
+  [vendor] name="Homebrew"
+  [vendor] version="1.6.1_11"
+  [view_compaction] keyvalue_buffer_size="2097152"
+Apache CouchDB has started. Time to relax.
+[info] [<0.56.0>] Apache CouchDB has started on http://127.0.0.1:5984/
+[debug] [<0.127.0>] 'GET' /_utils {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Cache-Control',"max-age=0"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {"Upgrade-Insecure-Requests","1"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils 301
+[debug] [<0.127.0>] 'GET' /_utils/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Cache-Control',"max-age=0"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {"Upgrade-Insecure-Requests","1"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/ 200
+[debug] [<0.127.0>] 'GET' /_utils/style/layout.css?0.11.0 {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/css,*/*;q=0.1"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: [{"0.11.0",[]}]
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/style/layout.css?0.11.0 200
+[debug] [<0.127.0>] 'GET' /_utils/script/json2.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/json2.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/sha1.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/sha1.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/jquery.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/jquery.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/jquery.couch.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/jquery.couch.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/jquery.dialog.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/jquery.dialog.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/futon.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/futon.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/futon.browse.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/futon.browse.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/futon.format.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/futon.format.js 200
+[debug] [<0.127.0>] 'GET' /_utils/image/bg.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/bg.png 200
+[debug] [<0.127.0>] 'GET' /_utils/image/add.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/add.png 200
+[debug] [<0.127.0>] 'GET' /_utils/image/thead.gif {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/thead.gif 200
+[debug] [<0.127.0>] 'GET' /_utils/_sidebar.html {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/_sidebar.html 200
+[debug] [<0.127.0>] 'GET' /_all_dbs {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_all_dbs 200
+[debug] [<0.127.0>] 'GET' /_utils/image/spinner_33.gif {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/spinner_33.gif 200
+[debug] [<0.127.0>] 'GET' /_utils/image/sidebar-toggle.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/sidebar-toggle.png 200
+[debug] [<0.127.0>] 'GET' /_session {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_session 200
+[debug] [<0.127.0>] 'GET' / {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET / 200
+[debug] [<0.127.0>] 'GET' /_utils/image/logo.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/logo.png 200
+[debug] [<0.127.0>] 'GET' /_replicator/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_replicator/ 200
+[debug] [<0.127.0>] 'GET' /_users/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_users/ 200
+[debug] [<0.127.0>] 'GET' /birdie_transactions/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /birdie_transactions/ 200
+[debug] [<0.127.0>] 'GET' /birdie_users/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /birdie_users/ 200
+[debug] [<0.127.0>] 'GET' /stringers/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /stringers/ 200
+[debug] [<0.127.0>] 'GET' /swagger_docs/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /swagger_docs/ 200
+[debug] [<0.127.0>] 'GET' /test_suite_db/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /test_suite_db/ 200
+[debug] [<0.127.0>] 'GET' /trees/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /trees/ 200
+[debug] [<0.127.0>] 'GET' /vartests/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /vartests/ 200
+[debug] [<0.127.0>] 'GET' /_utils/database.html?vartests {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/"},
+          {"Upgrade-Insecure-Requests","1"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: [{"vartests",[]}]
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/database.html?vartests 200
+[debug] [<0.127.0>] 'GET' /_utils/style/layout.css {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/css,*/*;q=0.1"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?vartests"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/style/layout.css 200
+[debug] [<0.127.0>] 'GET' /_utils/script/jquery.resizer.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?vartests"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/jquery.resizer.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/jquery.suggest.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?vartests"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/jquery.suggest.js 200
+[debug] [<0.127.0>] 'GET' /_utils/image/path.gif {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/path.gif 200
+[debug] [<0.127.0>] 'GET' /_utils/image/key.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/key.png 200
+[debug] [<0.127.0>] 'GET' /_utils/image/compact.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/compact.png 200
+[debug] [<0.127.0>] 'GET' /_utils/image/delete.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/delete.png 200
+[debug] [<0.127.0>] 'GET' /_utils/image/thead-key.gif {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/thead-key.gif 200
+[debug] [<0.127.0>] 'GET' /_utils/image/order-asc.gif {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/order-asc.gif 200
+[debug] [<0.127.0>] 'GET' /_utils/_sidebar.html {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'If-Modified-Since',"Thu, 21 Aug 2014 23:16:42 GMT"},
+          {'Referer',"http://localhost:5984/_utils/database.html?vartests"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/_sidebar.html 200
+[debug] [<0.127.0>] 'GET' /vartests/_all_docs?startkey=%22_design%2F%22&endkey=%22_design0%22&include_docs=true {1,
+                                                                                                                 1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?vartests"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: [{"startkey","\"_design/\""},
+                                   {"endkey","\"_design0\""},
+                                   {"include_docs","true"}]
+[info] [<0.127.0>] 127.0.0.1 - - GET /vartests/_all_docs?startkey=%22_design%2F%22&endkey=%22_design0%22&include_docs=true 200
+[debug] [<0.127.0>] 'GET' /vartests/_all_docs?limit=11 {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?vartests"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: [{"limit","11"}]
+[info] [<0.127.0>] 127.0.0.1 - - GET /vartests/_all_docs?limit=11 200
+[debug] [<0.127.0>] 'GET' /_config/query_servers/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?vartests"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_config/query_servers/ 200
+[debug] [<0.127.0>] 'GET' /_utils/image/rarrow.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_recent=stringers%2Ctrees; 5984_tab=source; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/rarrow.png 200
+[debug] [<0.127.0>] 'GET' /_session {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?vartests"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_session 200
+[debug] [<0.127.0>] 'GET' / {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?vartests"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET / 200
+[debug] [<0.127.0>] 'GET' /_config/native_query_servers/ {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?vartests"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_config/native_query_servers/ 200
+[debug] [<0.127.0>] 'GET' /_utils/document.html?vartests/_design/core {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_tab=source; 5984_recent=vartests%2Cstringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/database.html?vartests"},
+          {"Upgrade-Insecure-Requests","1"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: [{"vartests/_design/core",[]}]
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/document.html?vartests/_design/core 200
+[debug] [<0.127.0>] 'GET' /_utils/style/layout.css?0.11.0 {1,1} from "127.0.0.1"
+Headers: [{'Accept',"text/css,*/*;q=0.1"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_tab=source; 5984_recent=vartests%2Cstringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'If-Modified-Since',"Thu, 21 Aug 2014 23:16:42 GMT"},
+          {'Referer',"http://localhost:5984/_utils/document.html?vartests/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: [{"0.11.0",[]}]
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/style/layout.css?0.11.0 200
+[debug] [<0.127.0>] 'GET' /_utils/script/base64.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_tab=source; 5984_recent=vartests%2Cstringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/document.html?vartests/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/base64.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/jquery.editinline.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_tab=source; 5984_recent=vartests%2Cstringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/document.html?vartests/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/jquery.editinline.js 200
+[debug] [<0.127.0>] 'GET' /_utils/script/jquery.form.js {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_tab=source; 5984_recent=vartests%2Cstringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/document.html?vartests/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/script/jquery.form.js 200
+[debug] [<0.127.0>] 'GET' /_utils/image/save.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_tab=source; 5984_recent=vartests%2Cstringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/save.png 200
+[debug] [<0.127.0>] 'GET' /_utils/image/load.png {1,1} from "127.0.0.1"
+Headers: [{'Accept',"image/webp,image/apng,image/*,*/*;q=0.8"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_tab=source; 5984_recent=vartests%2Cstringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/style/layout.css?0.11.0"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/image/load.png 200
+[debug] [<0.127.0>] 'GET' /_utils/_sidebar.html {1,1} from "127.0.0.1"
+Headers: [{'Accept',"*/*"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Cookie',"5984_tab=source; 5984_recent=vartests%2Cstringers%2Ctrees; _ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'If-Modified-Since',"Thu, 21 Aug 2014 23:16:42 GMT"},
+          {'Referer',"http://localhost:5984/_utils/document.html?vartests/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_utils/_sidebar.html 200
+[debug] [<0.127.0>] 'GET' /vartests/_design/core?revs_info=true {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/document.html?vartests/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: [{"revs_info","true"}]
+[info] [<0.127.0>] 127.0.0.1 - - GET /vartests/_design/core?revs_info=true 200
+[debug] [<0.127.0>] 'GET' /_session {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/document.html?vartests/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET /_session 200
+[debug] [<0.127.0>] 'GET' / {1,1} from "127.0.0.1"
+Headers: [{'Accept',"application/json"},
+          {'Accept-Encoding',"gzip, deflate, br"},
+          {'Accept-Language',"en-US,en;q=0.8"},
+          {"Alexatoolbar-Alx_ns_ph","AlexaToolbar/alx-4.0.1"},
+          {'Connection',"keep-alive"},
+          {'Content-Type',"application/json"},
+          {'Cookie',"_ga=GA1.1.897442263.1487713580"},
+          {"Dnt","1"},
+          {'Host',"localhost:5984"},
+          {'Referer',"http://localhost:5984/_utils/document.html?vartests/_design/core"},
+          {'User-Agent',"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"},
+          {"X-Requested-With","XMLHttpRequest"}]
+[debug] [<0.127.0>] OAuth Params: []
+[info] [<0.127.0>] 127.0.0.1 - - GET / 200

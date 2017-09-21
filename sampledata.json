@@ -1,0 +1,17 @@
+{
+	"id":"97f99f9f-31fb-488b-9d39-4f14d03b4d09",
+	"bark":"brown",
+	"leaves":"green",
+	"species":"apple",
+	"fruit":[
+		{
+			"fruitId":"d0b29929-8bfa-46c4-a643-73f0af9f8c84",
+			"color":"red",
+			"seeds":"small"
+		}
+	],
+	"created":"2012-01-01",
+	"updated":"2012-01-01",
+	"branches":4,
+	"persistence":"evergreen|deciduous"
+}
